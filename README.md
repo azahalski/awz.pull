@@ -5,6 +5,7 @@
 <!-- desc-start -->
 
 Модуль содержит Api для организации интерактивных интерфейсов с помощью [WebSocket](https://ru.wikipedia.org/wiki/WebSocket).
+В качестве push and pull сервера используется стандартный [NodeJS RTC Service](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=48&LESSON_ID=21636&LESSON_PATH=3918.4635.11757.21636) на [BitrixVm](https://dev.1c-bitrix.ru/learning/course/index.php?COURSE_ID=37&CHAPTER_ID=029374&LESSON_PATH=3908.29228.29374).
 
 **Поддерживаемые редакции CMS Битрикс:**<br>
 «Первый сайт», «Старт», «Стандарт», «Малый бизнес», «Эксперт», «Бизнес», «Корпоративный портал», «Энтерпрайз», «Интернет-магазин + CRM»

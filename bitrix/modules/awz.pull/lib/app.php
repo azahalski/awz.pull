@@ -89,8 +89,6 @@ class App {
         $url = self::getPublishUrl($channelId);
         $httpClient->disableSslVerification();
 
-        print_r([$url, $postdata]);
-
         $sendResult = $httpClient->query($options["method"], $url, $postdata);
         if ($sendResult)
         {
