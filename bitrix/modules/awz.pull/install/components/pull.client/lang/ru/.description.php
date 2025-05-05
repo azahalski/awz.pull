@@ -1,0 +1,4 @@
+<?php
+$MESS['AWZ_PULL_CLIENT_PARAM_DESCR_NAME'] = 'Подписка на канал';
+$MESS['AWZ_PULL_CLIENT_PARAM_DESCR_GROUP'] = 'Zahalski.dev';
+$MESS['AWZ_PULL_CLIENT_PARAM_DESCR_GROUP_USER'] = 'Push and Pull';

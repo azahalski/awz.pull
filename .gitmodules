@@ -1,0 +1,6 @@
+[submodule "tools/build"]
+	path = tools/build
+	url = git@github.com:azahalski/awz.bxbuild.tools.git
+[submodule "tools/tests"]
+	path = tools/tests
+	url = git@github.com:azahalski/awz.bxbuild.tests.git
