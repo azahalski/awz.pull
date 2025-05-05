@@ -52,8 +52,14 @@ location ~* ^/api/mysecreturl/nginx_status/ {
 
 <!-- nginx-end -->
 
-<!-- sett-start -->
-## Настройка модуля
+<!-- dev-start -->
+## Как использовать
+
+### 1. Установить модуль awz.pull
+
+[Установка модуля](https://github.com/azahalski/awz.pull/tree/main/docs/install.md)
+
+### 2. Настроить модуль
 
 | Параметр                                                      | Пример                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------|
@@ -62,16 +68,7 @@ location ~* ^/api/mysecreturl/nginx_status/ {
 | Адрес API NodeJs RTC сервера                                  | https://push.zahalski.dev/api/mysecreturl/                                      |
 | Секретный ключ                                                | /etc/push-server/push-server*.json в секции security в параметре key            |
 
-<!-- sett-end -->
-
-<!-- dev-start -->
-## Как использовать
-
-### 1. Установить модуль awz.pull
-
-[Установка модуля](https://github.com/azahalski/awz.pull/tree/main/docs/install.md)
-
-### 2. Разместить компонент
+### 3. Разместить компонент
 
 ```php
 <?$APPLICATION->IncludeComponent(
@@ -84,7 +81,7 @@ location ~* ^/api/mysecreturl/nginx_status/ {
 );?>
 ```
 
-### 3. Ловим сообщение
+### 4. Ловим сообщение
 
 ```js
 BX.addCustomEvent('awz.pull.onmessage',
@@ -94,11 +91,11 @@ BX.addCustomEvent('awz.pull.onmessage',
 );
 ```
 
-### 4. Отправка сообщения
+### 5. Отправка сообщения
 
-см. пункт 5
+см. пункт 6
 
-### 5. Документация
+### 6. Документация
 
 **App::sendToUser** - отправляет сообщение на клиент
 
