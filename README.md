@@ -55,14 +55,72 @@ location ~* ^/api/mysecreturl/nginx_status/ {
 <!-- sett-start -->
 ## Настройка модуля
 
-| Параметр                                                      | Приме                                                                            |
-|---------------------------------------------------------------|----------------------------------------------------------------------------------|
-| Адрес отправки сообщений (#CHANNEL_ID# - ид канала)           | https://push.zahalski.dev/pub/mysecreturl/#CHANNEL_ID#                           |
+| Параметр                                                      | Пример                                                                          |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------|
+| Адрес отправки сообщений (#CHANNEL_ID# - ид канала)           | https://push.zahalski.dev/pub/mysecreturl/#CHANNEL_ID#                          |
 | Адрес подписки на каналы сообщений (#CHANNEL_ID# - ид канала) | wss://push.zahalski.dev/ws/?CHANNEL_ID=#CHANNEL_ID#&binaryMode=false&revision=19 |
-| Адрес API NodeJs RTC сервера                                  | https://push.zahalski.dev/api/mysecreturl/                                       |
-| Секретный ключ                                                | /etc/push-server/push-server*.json в секции security в параметре key             |
+| Адрес API NodeJs RTC сервера                                  | https://push.zahalski.dev/api/mysecreturl/                                      |
+| Секретный ключ                                                | /etc/push-server/push-server*.json в секции security в параметре key            |
 
 <!-- sett-end -->
+
+<!-- dev-start -->
+## Как использовать
+
+### 1. Установить модуль
+
+### 2. Разместить компонент
+
+```php
+<?$APPLICATION->IncludeComponent(
+    "awz:pull.client",
+    "",
+    Array(
+        "TYPE" => "",
+        "USER" => ""
+    )
+);?>
+```
+
+### 3. Ловим сообщение
+
+```js
+BX.addCustomEvent('awz.pull.onmessage',
+    BX.delegate(function (msg) {
+        console.log(msg);
+    })
+);
+```
+
+### 3. Отправка сообщения
+
+```php
+use Bitrix\Main\Loader;
+use Awz\Pull\App;
+if(Loader::includeModule('awz.pull')){
+App::sendToUser(1, 
+    [
+        'time'=>time(), 
+        'date_plus_day'=>\Bitrix\Main\Type\DateTime::createFromTimestamp(time()+86400)
+    ]
+);
+}
+```
+
+### 4. Документация
+
+**App::sendToUser**
+
+| Параметр | Тип       | Описание                                   |
+|----------|-----------|--------------------------------------------|
+| $userId  | `int`     | Ид пользователя                            |
+| $message | `array`   | Сообщение отправляемое на клиент           |
+| $options | `array`   | Дополнительные опции                       |
+| $type    | `string`  | Тип канала (например, public или private)  |
+
+вернет `true` в случае успеха или `false` в случае ошибки
+
+<!-- dev-end -->
 
 <!-- cl-start -->
 ## История версий
