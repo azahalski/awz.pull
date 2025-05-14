@@ -2,8 +2,8 @@
 use Bitrix\Main\Localization\Loc;
 use Bitrix\Main\Loader;
 use Bitrix\Main\Config\Option;
-use Awz\Admin\Access\AccessController;
-use Awz\Admin\Access\Custom\ActionDictionary;
+use Awz\Pull\Access\AccessController;
+use Awz\Pull\Access\Custom\ActionDictionary;
 Loc::loadMessages(__FILE__);
 $module_id = "awz.pull";
 if(!Loader::includeModule($module_id)) return;
