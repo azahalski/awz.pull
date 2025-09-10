@@ -46,6 +46,7 @@ class ChannelsTable extends ORM\Data\DataManager
 
 	public static function getId(int $userId, string $channelType=self::CN_PRIVATE): string
     {
+        $channelType = mb_substr($channelType, 0, 64);
 		$channelId = '';
 
 		$cache_id = "chanel_".$userId.'_'.$channelType;
